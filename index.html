@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,17 +45,21 @@
       </a>
 
       <nav class="primary-nav" aria-label="Primary">
-        <a href="#products">Shop</a>
+        <a href="#products" data-i18n="nav.shop">Boutique</a>
         <a href="#drop">Drop 01</a>
         <a href="#lookbook">Lookbook</a>
-        <a href="#story">About</a>
+        <a href="#story" data-i18n="nav.about">À propos</a>
         <a href="#drop-alert">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <a class="btn btn--ghost btn--sm" href="#drop-alert">Drop alert</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="fr" lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en" lang="en">EN</button>
+        </div>
+        <a class="btn btn--ghost btn--sm" href="#drop-alert" data-i18n="nav.alert">Alerte drop</a>
         <!-- Cart is intentionally non-functional in V1: it opens the drop-soon modal. -->
-        <button class="icon-btn" type="button" data-cart aria-label="Cart — drop coming soon">
+        <button class="icon-btn" type="button" data-cart aria-label="Panier — disponible bientôt">
           <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2l2.4 12.2a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L21 8H6" /><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="18" cy="20" r="1.4" fill="currentColor"/></svg>
         </button>
         <button class="icon-btn burger" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
@@ -68,13 +72,13 @@
   <!-- Mobile slide-down menu -->
   <div class="mobile-menu glass-panel" id="mobile-menu" data-menu hidden>
     <nav aria-label="Mobile">
-      <a href="#products" data-menu-link>Shop</a>
+      <a href="#products" data-menu-link data-i18n="nav.shop">Boutique</a>
       <a href="#drop" data-menu-link>Drop 01</a>
       <a href="#lookbook" data-menu-link>Lookbook</a>
-      <a href="#story" data-menu-link>About</a>
+      <a href="#story" data-menu-link data-i18n="nav.about">À propos</a>
       <a href="#drop-alert" data-menu-link>Contact</a>
     </nav>
-    <a class="btn btn--primary btn--block" href="#drop-alert" data-menu-link>Get the drop alert</a>
+    <a class="btn btn--primary btn--block" href="#drop-alert" data-menu-link data-i18n="nav.alert.mobile">Recevoir l'alerte drop</a>
   </div>
 
   <!-- ============================================================
@@ -82,11 +86,11 @@
        ============================================================ -->
   <nav class="side-rail" aria-label="Sections" data-side-rail>
     <ul class="glass-panel">
-      <li><a href="#hero" data-rail-link class="is-active"><span class="dot"></span><span class="label">Hero</span></a></li>
-      <li><a href="#drop" data-rail-link><span class="dot"></span><span class="label">Drop</span></a></li>
-      <li><a href="#products" data-rail-link><span class="dot"></span><span class="label">Products</span></a></li>
-      <li><a href="#lookbook" data-rail-link><span class="dot"></span><span class="label">Lookbook</span></a></li>
-      <li><a href="#story" data-rail-link><span class="dot"></span><span class="label">Story</span></a></li>
+      <li><a href="#hero" data-rail-link class="is-active"><span class="dot"></span><span class="label" data-i18n="rail.hero">Accueil</span></a></li>
+      <li><a href="#drop" data-rail-link><span class="dot"></span><span class="label" data-i18n="rail.drop">Drop</span></a></li>
+      <li><a href="#products" data-rail-link><span class="dot"></span><span class="label" data-i18n="rail.products">Produits</span></a></li>
+      <li><a href="#lookbook" data-rail-link><span class="dot"></span><span class="label" data-i18n="rail.lookbook">Lookbook</span></a></li>
+      <li><a href="#story" data-rail-link><span class="dot"></span><span class="label" data-i18n="rail.story">Histoire</span></a></li>
     </ul>
   </nav>
 
@@ -115,19 +119,19 @@
       <!-- Floating spec card (top-right, same level as title) -->
       <aside class="floating-card glass-panel" data-float aria-label="Drop 01 highlight">
         <span class="floating-card__tag">Drop 01</span>
-        <p class="floating-card__line">Oversized tee</p>
-        <p class="floating-card__muted">Blue &amp; Pink print · Limited first release</p>
+        <p class="floating-card__line" data-i18n="float.line">T-shirt oversize</p>
+        <p class="floating-card__muted" data-i18n="float.muted">Print bleu &amp; rose · Première édition limitée</p>
       </aside>
 
       <!-- Subtitle + CTA superimposed at the bottom -->
       <div class="hero__footer">
         <div class="hero__text">
           <p class="hero__subtitle reveal" data-reveal>True For Now</p>
-          <p class="hero__lead reveal" data-reveal data-reveal-delay="1">Soft basics, bold graphic energy, built around a quiet chest mark and a blurred back identity.</p>
+          <p class="hero__lead reveal" data-reveal data-reveal-delay="1" data-i18n="hero.lead">Basics oversize, énergie graphique affirmée, construits autour d'un petit emblème poitrine et une identité dos floue.</p>
         </div>
         <div class="hero__actions reveal" data-reveal data-reveal-delay="2">
-          <a class="btn btn--primary" href="#products">Shop Drop 01</a>
-          <a class="btn btn--ghost hero__btn-ghost" href="#lookbook">View Lookbook</a>
+          <a class="btn btn--primary" href="#products" data-i18n="hero.cta.shop">Voir le Drop 01</a>
+          <a class="btn btn--ghost hero__btn-ghost" href="#lookbook" data-i18n="hero.cta.lookbook">Voir le Lookbook</a>
         </div>
       </div>
 
@@ -143,13 +147,13 @@
     <section class="drop-section section" id="drop">
       <div class="shell">
         <p class="eyebrow reveal" data-reveal>Drop 01 — True For Now</p>
-        <h2 class="section-title reveal" data-reveal data-reveal-delay="1">A first capsule, built with intention.</h2>
-        <p class="section-lead reveal" data-reveal data-reveal-delay="2">A first release of oversized essentials designed with intention, proportion and graphic contrast.</p>
+        <h2 class="section-title reveal" data-reveal data-reveal-delay="1" data-i18n="drop.title">Une première capsule, construite avec intention.</h2>
+        <p class="section-lead reveal" data-reveal data-reveal-delay="2" data-i18n="drop.lead">Une première collection d'essentiels oversize conçus avec intention, proportion et contraste graphique.</p>
 
         <ul class="detail-list reveal" data-reveal data-reveal-delay="3">
-          <li class="glass-panel"><strong>Oversized fit</strong><span>Soft cotton, dropped shoulders, room to move.</span></li>
-          <li class="glass-panel"><strong>Chest emblem</strong><span>A quiet blue mark on the left chest.</span></li>
-          <li class="glass-panel"><strong>Blurred back print</strong><span>The large ZOYA graphic, softened and airbrushed.</span></li>
+          <li class="glass-panel"><strong data-i18n="drop.fit.title">Coupe oversize</strong><span data-i18n="drop.fit.desc">Coton doux, épaules tombantes, liberté de mouvement.</span></li>
+          <li class="glass-panel"><strong data-i18n="drop.chest.title">Emblème poitrine</strong><span data-i18n="drop.chest.desc">Un discret marquage bleu sur le côté gauche de la poitrine.</span></li>
+          <li class="glass-panel"><strong data-i18n="drop.back.title">Print dos flou</strong><span data-i18n="drop.back.desc">Le grand graphique ZOYA, adouci et aérographié.</span></li>
         </ul>
       </div>
     </section>
@@ -160,31 +164,31 @@
     <section class="category-section section" id="categories">
       <div class="shell">
         <header class="section-head">
-          <h2 class="section-title reveal" data-reveal>Shop by category</h2>
-          <p class="section-lead reveal" data-reveal data-reveal-delay="1">The studio starts with tees. The structure is built to grow.</p>
+          <h2 class="section-title reveal" data-reveal data-i18n="cat.title">Voir par catégorie</h2>
+          <p class="section-lead reveal" data-reveal data-reveal-delay="1" data-i18n="cat.lead">Le studio commence avec des tees. La structure est faite pour grandir.</p>
         </header>
 
         <div class="category-grid">
           <a class="category-card glass-panel reveal is-active" data-reveal href="#products">
-            <span class="category-card__status">Available now</span>
+            <span class="category-card__status" data-i18n="cat.available">Disponible maintenant</span>
             <span class="category-card__name">T-shirts</span>
-            <span class="category-card__desc">The first Zoya Studio essential.</span>
+            <span class="category-card__desc" data-i18n="cat.tshirt.desc">Le premier essentiel Zoya Studio.</span>
             <span class="category-card__arrow" aria-hidden="true">→</span>
           </a>
           <div class="category-card glass-panel reveal" data-reveal data-reveal-delay="1" aria-disabled="true">
-            <span class="category-card__status">Coming soon</span>
+            <span class="category-card__status" data-i18n="cat.soon">Bientôt disponible</span>
             <span class="category-card__name">Hoodies / Pulls</span>
-            <span class="category-card__desc">Future heavier shapes.</span>
+            <span class="category-card__desc" data-i18n="cat.hoodies.desc">Prochaines pièces plus lourdes.</span>
           </div>
           <div class="category-card glass-panel reveal" data-reveal data-reveal-delay="2" aria-disabled="true">
-            <span class="category-card__status">Coming soon</span>
+            <span class="category-card__status" data-i18n="cat.soon">Bientôt disponible</span>
             <span class="category-card__name">Accessories</span>
-            <span class="category-card__desc">Small graphic objects coming later.</span>
+            <span class="category-card__desc" data-i18n="cat.acc.desc">Petits objets graphiques à venir.</span>
           </div>
           <div class="category-card glass-panel reveal" data-reveal data-reveal-delay="3" aria-disabled="true">
-            <span class="category-card__status">Coming soon</span>
+            <span class="category-card__status" data-i18n="cat.soon">Bientôt disponible</span>
             <span class="category-card__name">Future drops</span>
-            <span class="category-card__desc">New pieces, same intention.</span>
+            <span class="category-card__desc" data-i18n="cat.future.desc">Nouvelles pièces, même intention.</span>
           </div>
         </div>
       </div>
@@ -196,13 +200,13 @@
     <section class="products-section section" id="products">
       <div class="shell">
         <header class="section-head">
-          <h2 class="section-title reveal" data-reveal>Shop the drop</h2>
-          <p class="section-lead reveal" data-reveal data-reveal-delay="1">Two pieces. One identity. Hover a card to flip front and back.</p>
+          <h2 class="section-title reveal" data-reveal data-i18n="products.title">La boutique</h2>
+          <p class="section-lead reveal" data-reveal data-reveal-delay="1" data-i18n="products.lead">Deux pièces. Une identité. Survolez une carte pour voir le dos.</p>
         </header>
 
         <!-- Category filter pills (animated switch handled in main.js). -->
         <div class="filter-pills reveal" data-reveal data-reveal-delay="2" role="tablist" aria-label="Filter products">
-          <button class="pill glass-panel is-active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="pill glass-panel is-active" type="button" data-filter="all" role="tab" aria-selected="true" data-i18n="filter.all">Tout</button>
           <button class="pill glass-panel" type="button" data-filter="tshirts" role="tab" aria-selected="false">T-shirts</button>
         </div>
 
@@ -218,7 +222,7 @@
       <div class="shell">
         <header class="section-head">
           <h2 class="section-title reveal" data-reveal>Lookbook</h2>
-          <p class="section-lead reveal" data-reveal data-reveal-delay="1">A quiet front. A blurred back. A first uniform for now.</p>
+          <p class="section-lead reveal" data-reveal data-reveal-delay="1" data-i18n="lookbook.lead">Un devant discret. Un dos flou. Un premier uniforme pour maintenant.</p>
         </header>
 
         <div class="lookbook__grid">
@@ -226,28 +230,28 @@
             <div class="media" data-media data-label="zoya-model-front-blue.jpg">
               <img loading="lazy" src="assets/img/zoya-model-front-blue.jpg" alt="ZOYA T-Shirt Blue — mannequin face" onerror="this.closest('[data-media]').classList.add('is-missing')" />
             </div>
-            <figcaption class="glass-panel"><strong>Blue print</strong> — front.</figcaption>
+            <figcaption class="glass-panel" data-i18n-html="look.blue.front"><strong>Print bleu</strong> — face.</figcaption>
           </figure>
 
           <figure class="lookbook__item reveal" data-reveal data-reveal-delay="1">
             <div class="media" data-media data-label="zoya-model-back-blue.jpg">
               <img loading="lazy" src="assets/img/zoya-model-back-blue.jpg" alt="ZOYA T-Shirt Blue — mannequin dos" onerror="this.closest('[data-media]').classList.add('is-missing')" />
             </div>
-            <figcaption class="glass-panel"><strong>Blue print</strong> — back.</figcaption>
+            <figcaption class="glass-panel" data-i18n-html="look.blue.back"><strong>Print bleu</strong> — dos.</figcaption>
           </figure>
 
           <figure class="lookbook__item reveal" data-reveal data-reveal-delay="2">
             <div class="media" data-media data-label="zoya-model-front-pink.jpg">
               <img loading="lazy" src="assets/img/zoya-model-front-pink.jpg" alt="ZOYA T-Shirt Pink — mannequin face" onerror="this.closest('[data-media]').classList.add('is-missing')" />
             </div>
-            <figcaption class="glass-panel"><strong>Pink print</strong> — front.</figcaption>
+            <figcaption class="glass-panel" data-i18n-html="look.pink.front"><strong>Print rose</strong> — face.</figcaption>
           </figure>
 
           <figure class="lookbook__item reveal" data-reveal data-reveal-delay="3">
             <div class="media" data-media data-label="zoya-model-back-pink.jpg">
               <img loading="lazy" src="assets/img/zoya-model-back-pink.jpg" alt="ZOYA T-Shirt Pink — mannequin dos" onerror="this.closest('[data-media]').classList.add('is-missing')" />
             </div>
-            <figcaption class="glass-panel"><strong>Pink print</strong> — back.</figcaption>
+            <figcaption class="glass-panel" data-i18n-html="look.pink.back"><strong>Print rose</strong> — dos.</figcaption>
           </figure>
         </div>
       </div>
@@ -258,9 +262,9 @@
          ============================================================ -->
     <section class="manifesto section" id="story">
       <div class="shell manifesto__inner">
-        <h2 class="manifesto__title reveal" data-reveal>Built beyond the frame</h2>
+        <h2 class="manifesto__title reveal" data-reveal data-i18n="story.title">Construit au-delà du cadre</h2>
         <div class="manifesto__body reveal" data-reveal data-reveal-delay="1">
-          <p>Form follows pure intention. Every single detail belongs to a larger structure. Zoya Studio begins with essentials made to exist beyond the frame.</p>
+          <p data-i18n="story.body">La forme suit l'intention pure. Chaque détail appartient à une structure plus grande. Zoya Studio commence avec des essentiels conçus pour exister au-delà du cadre.</p>
           <p class="manifesto__sign">Designed in France.</p>
         </div>
       </div>
@@ -276,13 +280,13 @@
       <div class="shell">
         <div class="drop-alert__card glass-panel reveal" data-reveal>
           <div class="drop-alert__text">
-            <h2 class="section-title">Be first to know when Drop 01 opens.</h2>
-            <p class="section-lead">No spam. Just the drop, the moment it goes live.</p>
+            <h2 class="section-title" data-i18n="alert.title">Sois le premier à savoir quand le Drop 01 ouvre.</h2>
+            <p class="section-lead" data-i18n="alert.lead">Pas de spam. Juste l'alerte, au moment où ça tombe.</p>
           </div>
           <form class="drop-alert__form" data-drop-alert action="mailto:hello@zoyastudio.fr" method="post" enctype="text/plain">
             <label class="sr-only" for="email">Email address</label>
             <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email" />
-            <button class="btn btn--primary" type="submit">Drop alert</button>
+            <button class="btn btn--primary" type="submit" data-i18n="alert.btn">Alerte drop</button>
             <p class="drop-alert__status" data-alert-status role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -303,9 +307,9 @@
         <a href="https://www.tiktok.com" target="_blank" rel="noopener">TikTok</a>
         <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>
         <a href="#drop-alert">Contact</a>
-        <a href="#legal">Legal</a>
-        <a href="#shipping">Shipping</a>
-        <a href="#returns">Returns</a>
+        <a href="#legal" data-i18n="footer.legal">Mentions légales</a>
+        <a href="#shipping" data-i18n="footer.shipping">Livraison</a>
+        <a href="#returns" data-i18n="footer.returns">Retours</a>
       </nav>
     </div>
     <p class="site-footer__copy">© <span data-year>2026</span> Zoya Studio. Designed in France.</p>
@@ -340,7 +344,7 @@
         <ul class="modal__tags" data-modal-tags></ul>
         <div class="modal__sizes" data-modal-sizes></div>
         <a class="btn btn--primary btn--block" data-modal-cta href="#drop-alert">Notify me</a>
-        <p class="modal__note">Drop 01 — limited first release.</p>
+        <p class="modal__note" data-i18n="modal.note">Drop 01 — première édition limitée.</p>
       </div>
     </div>
   </div>

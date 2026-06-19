@@ -25,12 +25,82 @@
   var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
 
+  /* -------------------- 0. Internationalisation -------------------- */
+  var T = {
+    fr: {
+      'nav.shop': 'Boutique', 'nav.about': 'À propos', 'nav.alert': 'Alerte drop',
+      'nav.alert.mobile': "Recevoir l'alerte drop",
+      'rail.hero': 'Accueil', 'rail.drop': 'Drop', 'rail.products': 'Produits',
+      'rail.lookbook': 'Lookbook', 'rail.story': 'Histoire',
+      'hero.lead': "Basics oversize, énergie graphique affirmée, construits autour d'un petit emblème poitrine et une identité dos floue.",
+      'hero.cta.shop': 'Voir le Drop 01', 'hero.cta.lookbook': 'Voir le Lookbook',
+      'float.line': 'T-shirt oversize', 'float.muted': 'Print bleu & rose · Première édition limitée',
+      'drop.title': 'Une première capsule, construite avec intention.',
+      'drop.lead': "Une première collection d'essentiels oversize conçus avec intention, proportion et contraste graphique.",
+      'drop.fit.title': 'Coupe oversize', 'drop.fit.desc': 'Coton doux, épaules tombantes, liberté de mouvement.',
+      'drop.chest.title': 'Emblème poitrine', 'drop.chest.desc': 'Un discret marquage bleu sur le côté gauche de la poitrine.',
+      'drop.back.title': 'Print dos flou', 'drop.back.desc': 'Le grand graphique ZOYA, adouci et aérographié.',
+      'cat.title': 'Voir par catégorie', 'cat.lead': 'Le studio commence avec des tees. La structure est faite pour grandir.',
+      'cat.available': 'Disponible maintenant', 'cat.tshirt.desc': 'Le premier essentiel Zoya Studio.',
+      'cat.soon': 'Bientôt disponible', 'cat.hoodies.desc': 'Prochaines pièces plus lourdes.',
+      'cat.acc.desc': 'Petits objets graphiques à venir.', 'cat.future.desc': 'Nouvelles pièces, même intention.',
+      'products.title': 'La boutique', 'products.lead': 'Deux pièces. Une identité. Survolez une carte pour voir le dos.',
+      'filter.all': 'Tout',
+      'lookbook.lead': 'Un devant discret. Un dos flou. Un premier uniforme pour maintenant.',
+      'look.blue.front': '<strong>Print bleu</strong> — face.', 'look.blue.back': '<strong>Print bleu</strong> — dos.',
+      'look.pink.front': '<strong>Print rose</strong> — face.', 'look.pink.back': '<strong>Print rose</strong> — dos.',
+      'story.title': 'Construit au-delà du cadre',
+      'story.body': "La forme suit l'intention pure. Chaque détail appartient à une structure plus grande. Zoya Studio commence avec des essentiels conçus pour exister au-delà du cadre.",
+      'alert.title': 'Sois le premier à savoir quand le Drop 01 ouvre.',
+      'alert.lead': "Pas de spam. Juste l'alerte, au moment où ça tombe.",
+      'alert.btn': 'Alerte drop', 'alert.success': 'Merci — tu es sur la liste pour le Drop 01.',
+      'footer.legal': 'Mentions légales', 'footer.shipping': 'Livraison', 'footer.returns': 'Retours',
+      'modal.note': 'Drop 01 — première édition limitée.',
+      'modal.add': 'Ajouter au panier', 'modal.notify': "M'alerter",
+      'card.soon': 'Bientôt', 'card.view': 'Voir le produit', 'card.notify': "M'alerter"
+    },
+    en: {
+      'nav.shop': 'Shop', 'nav.about': 'About', 'nav.alert': 'Drop alert',
+      'nav.alert.mobile': 'Get the drop alert',
+      'rail.hero': 'Hero', 'rail.drop': 'Drop', 'rail.products': 'Products',
+      'rail.lookbook': 'Lookbook', 'rail.story': 'Story',
+      'hero.lead': 'Soft basics, bold graphic energy, built around a quiet chest mark and a blurred back identity.',
+      'hero.cta.shop': 'Shop Drop 01', 'hero.cta.lookbook': 'View Lookbook',
+      'float.line': 'Oversized tee', 'float.muted': 'Blue & Pink print · Limited first release',
+      'drop.title': 'A first capsule, built with intention.',
+      'drop.lead': 'A first release of oversized essentials designed with intention, proportion and graphic contrast.',
+      'drop.fit.title': 'Oversized fit', 'drop.fit.desc': 'Soft cotton, dropped shoulders, room to move.',
+      'drop.chest.title': 'Chest emblem', 'drop.chest.desc': 'A quiet blue mark on the left chest.',
+      'drop.back.title': 'Blurred back print', 'drop.back.desc': 'The large ZOYA graphic, softened and airbrushed.',
+      'cat.title': 'Shop by category', 'cat.lead': 'The studio starts with tees. The structure is built to grow.',
+      'cat.available': 'Available now', 'cat.tshirt.desc': 'The first Zoya Studio essential.',
+      'cat.soon': 'Coming soon', 'cat.hoodies.desc': 'Future heavier shapes.',
+      'cat.acc.desc': 'Small graphic objects coming later.', 'cat.future.desc': 'New pieces, same intention.',
+      'products.title': 'Shop the drop', 'products.lead': 'Two pieces. One identity. Hover a card to flip front and back.',
+      'filter.all': 'All',
+      'lookbook.lead': 'A quiet front. A blurred back. A first uniform for now.',
+      'look.blue.front': '<strong>Blue print</strong> — front.', 'look.blue.back': '<strong>Blue print</strong> — back.',
+      'look.pink.front': '<strong>Pink print</strong> — front.', 'look.pink.back': '<strong>Pink print</strong> — back.',
+      'story.title': 'Built beyond the frame',
+      'story.body': 'Form follows pure intention. Every single detail belongs to a larger structure. Zoya Studio begins with essentials made to exist beyond the frame.',
+      'alert.title': 'Be first to know when Drop 01 opens.',
+      'alert.lead': 'No spam. Just the drop, the moment it goes live.',
+      'alert.btn': 'Drop alert', 'alert.success': "Thanks — you're on the list for Drop 01.",
+      'footer.legal': 'Legal', 'footer.shipping': 'Shipping', 'footer.returns': 'Returns',
+      'modal.note': 'Drop 01 — limited first release.',
+      'modal.add': 'Add to cart', 'modal.notify': 'Notify me',
+      'card.soon': 'Coming soon', 'card.view': 'View product', 'card.notify': 'Notify me'
+    }
+  };
+  var currentLang = 'fr';
+  var currentFilter = 'all';
+
   /* -------------------- 2. Product rendering -------------------- */
   var products = window.ZOYA_PRODUCTS || [];
   var grid = $("[data-product-grid]");
 
   function priceLabel(p) {
-    return p.price ? p.price : "Coming soon";
+    return p.price ? p.price : T[currentLang]['card.soon'];
   }
 
   function buildCard(p) {
@@ -66,7 +136,7 @@
         "</div>" +
         '<p class="product-card__price ' + (p.price ? "" : "product-card__price--soon") + '">' + priceLabel(p) + "</p>" +
         '<button class="product-card__cta" type="button" data-open-product ' + (soldSoon ? 'data-soon="true"' : "") + ">" +
-          (soldSoon ? "Notify me" : "View product") +
+          (soldSoon ? T[currentLang]['card.notify'] : T[currentLang]['card.view']) +
           ' <span class="arrow" aria-hidden="true">→</span>' +
         "</button>" +
       "</div>";
@@ -82,6 +152,7 @@
 
   function renderProducts(filter) {
     if (!grid) return;
+    currentFilter = filter || 'all';
     grid.innerHTML = "";
     products
       .filter(function (p) { return !filter || filter === "all" || p.category === filter; })
@@ -153,10 +224,10 @@
 
     var cta = $("[data-modal-cta]", modal);
     if (p.status === "available" && p.checkoutUrl) {
-      cta.textContent = "Add to cart";
+      cta.textContent = T[currentLang]['modal.add'];
       cta.setAttribute("href", p.checkoutUrl);
     } else {
-      cta.textContent = "Notify me";
+      cta.textContent = T[currentLang]['modal.notify'];
       cta.setAttribute("href", "#drop-alert");
     }
 
@@ -321,7 +392,7 @@
   if (alertForm) {
     alertForm.addEventListener("submit", function () {
       var status = $("[data-alert-status]", alertForm);
-      if (status) status.textContent = "Thanks — you're on the list for Drop 01.";
+      if (status) status.textContent = T[currentLang]['alert.success'];
       // The native mailto action still fires; remove it once a backend is wired.
     });
   }
@@ -334,8 +405,32 @@
   var yearEl = $("[data-year]");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  /* -------------------- 11. Language switcher -------------------- */
+  function switchLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('zoya-lang', lang); } catch (e) {}
+    $$('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (T[lang][key] !== undefined) el.textContent = T[lang][key];
+    });
+    $$('[data-i18n-html]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-html');
+      if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+    });
+    $$('[data-lang]').forEach(function (btn) {
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+    });
+    renderProducts(currentFilter);
+  }
+  $$('[data-lang]').forEach(function (btn) {
+    btn.addEventListener('click', function () { switchLang(btn.getAttribute('data-lang')); });
+  });
+
   /* -------------------- Boot -------------------- */
-  renderProducts("all");
   observeReveals($$("[data-reveal]"));
   onScroll();
+  var _initLang = null;
+  try { _initLang = localStorage.getItem('zoya-lang'); } catch (e) {}
+  switchLang(_initLang === 'en' ? 'en' : 'fr');
 })();

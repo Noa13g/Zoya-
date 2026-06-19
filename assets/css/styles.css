@@ -261,6 +261,18 @@ button { font: inherit; cursor: pointer; }
 .site-header.is-menu-open .burger span:nth-child(2) { opacity: 0; }
 .site-header.is-menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
+/* Language switcher */
+.lang-switch { display: flex; align-items: center; gap: 2px; }
+.lang-btn {
+  font-family: var(--font-body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.08em; padding: 4px 7px; border-radius: var(--radius-sm);
+  border: 1px solid transparent; background: transparent;
+  color: var(--color-muted); cursor: pointer;
+  transition: color var(--duration-fast), background var(--duration-fast), border-color var(--duration-fast);
+}
+.lang-btn.is-active { color: var(--color-text); background: rgba(0,0,0,.07); border-color: var(--color-border); }
+.lang-btn:hover:not(.is-active) { color: var(--color-text); }
+
 /* Mobile menu */
 .mobile-menu {
   position: fixed; z-index: 990;
