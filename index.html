@@ -92,35 +92,45 @@
 
   <main>
     <!-- ============================================================
-         HERO
+         HERO — editorial layout: title → full-width image → CTA
          ============================================================ -->
     <section class="hero" id="hero">
-      <div class="hero__media media" data-media data-label="zoya-hero-01.jpg">
-        <img src="assets/img/zoya-hero-01.jpg" alt="Model wearing the oversized white Zoya Studio tee, back view with the blurred blue ZOYA print" onerror="this.closest('[data-media]').classList.add('is-missing')" />
-        <div class="hero__scrim" aria-hidden="true"></div>
+
+      <!-- 1. Typographic header (dark text on the page background) -->
+      <div class="hero__header">
+        <p class="hero__kicker reveal" data-reveal>Drop 01</p>
+        <h1 class="hero__title reveal" data-reveal data-reveal-delay="1">Zoya<br>Studio</h1>
       </div>
 
-      <div class="hero__inner">
-        <p class="hero__kicker reveal" data-reveal>Drop 01</p>
-        <h1 class="hero__title reveal" data-reveal data-reveal-delay="1">Zoya Studio</h1>
-        <p class="hero__subtitle reveal" data-reveal data-reveal-delay="2">True For Now</p>
-        <p class="hero__lead reveal" data-reveal data-reveal-delay="3">Soft basics, bold graphic energy, built around a quiet chest mark and a blurred back identity.</p>
-        <div class="hero__actions reveal" data-reveal data-reveal-delay="4">
+      <!-- 2. Full-width image — float card + scroll cue live here -->
+      <div class="hero__visual" data-media data-label="zoya-hero-01.png">
+        <img
+          src="assets/img/zoya-hero-01.png"
+          alt="Two models on a Mediterranean terrace wearing Zoya Studio Drop 01 — blue chest emblem (front) and pink ZOYA back print"
+          onerror="this.closest('[data-media]').classList.add('is-missing')"
+        />
+        <aside class="floating-card glass-panel" data-float aria-label="Drop 01 highlight">
+          <span class="floating-card__tag">Drop 01</span>
+          <p class="floating-card__line">Oversized tee</p>
+          <p class="floating-card__muted">Blue &amp; Pink print · Limited first release</p>
+        </aside>
+        <a class="scroll-indicator" href="#drop" aria-label="Scroll to Drop 01">
+          <span class="scroll-indicator__track"><span class="scroll-indicator__dot"></span></span>
+        </a>
+      </div>
+
+      <!-- 3. Subtitle + CTA row -->
+      <div class="hero__footer">
+        <div class="hero__text">
+          <p class="hero__subtitle reveal" data-reveal>True For Now</p>
+          <p class="hero__lead reveal" data-reveal data-reveal-delay="1">Soft basics, bold graphic energy, built around a quiet chest mark and a blurred back identity.</p>
+        </div>
+        <div class="hero__actions reveal" data-reveal data-reveal-delay="2">
           <a class="btn btn--primary" href="#products">Shop Drop 01</a>
           <a class="btn btn--ghost" href="#lookbook">View Lookbook</a>
         </div>
       </div>
 
-      <!-- Floating glass spec card -->
-      <aside class="floating-card glass-panel" data-float aria-label="Drop 01 highlight">
-        <span class="floating-card__tag">Drop 01</span>
-        <p class="floating-card__line">Oversized tee</p>
-        <p class="floating-card__muted">Blue print · Limited first release</p>
-      </aside>
-
-      <a class="scroll-indicator" href="#drop" aria-label="Scroll to Drop 01">
-        <span class="scroll-indicator__track"><span class="scroll-indicator__dot"></span></span>
-      </a>
     </section>
 
     <!-- ============================================================
