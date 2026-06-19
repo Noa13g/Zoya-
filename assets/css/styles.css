@@ -354,7 +354,7 @@ button { font: inherit; cursor: pointer; }
 .hero__visual img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 22%;  /* sky + faces + ZOYA back print all visible */
+  object-position: center 12%;  /* lower faces below the nav bar */
   transform: scale(1.04);
   transition: transform var(--duration-slow) var(--ease-out);
 }
@@ -707,7 +707,7 @@ a.category-card:hover .category-card__arrow { transform: translateX(4px); }
   .category-grid { grid-template-columns: 1fr; }
   /* Hero on small phones */
   .hero { min-height: 85vh; }
-  .hero__visual img { object-position: 58% 18%; } /* centre on models, show ZOYA pink text */
+  .hero__visual img { object-position: 58% 8%; } /* lower faces below the nav bar */
   .hero__footer { padding-bottom: 76px; /* clear bottom nav */ }
   .hero__actions .btn { flex: 1; }
 }
