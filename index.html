@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       SEO + social metadata
+       Replace the og:image path once a real share image exists.
+       ============================================================ -->
+  <title>Zoya Studio — Drop 01</title>
+  <meta name="description" content="Zoya Studio is a minimal clothing studio introducing Drop 01: oversized tees with graphic blue and pink prints." />
+  <meta name="theme-color" content="#f6f6f2" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Zoya Studio — Drop 01" />
+  <meta property="og:description" content="Soft basics, bold graphic energy. A first capsule built around a quiet chest mark and a blurred back identity." />
+  <meta property="og:image" content="assets/img/zoya-hero-01.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/zoya-logo-blue.svg" />
+
+  <!-- Fonts: loaded with a system fallback so the page never blocks on the network. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- Accessibility: jump straight to content for keyboard / screen-reader users. -->
+  <a class="skip-link" href="#hero">Skip to content</a>
+
+  <!-- Thin scroll-progress bar pinned to the very top of the viewport. -->
+  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+  <!-- ============================================================
+       HEADER — floating liquid-glass navigation bar
+       ============================================================ -->
+  <header class="site-header" data-header>
+    <div class="liquid-nav glass-panel">
+      <a class="brand" href="#hero" aria-label="Zoya Studio — home">
+        <img class="brand__mark" src="assets/img/zoya-logo-blue.svg" alt="" width="28" height="28" />
+        <span class="brand__name">Zoya Studio</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="#products">Shop</a>
+        <a href="#drop">Drop 01</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#story">About</a>
+        <a href="#drop-alert">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn--ghost btn--sm" href="#drop-alert">Drop alert</a>
+        <!-- Cart is intentionally non-functional in V1: it opens the drop-soon modal. -->
+        <button class="icon-btn" type="button" data-cart aria-label="Cart — drop coming soon">
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2l2.4 12.2a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L21 8H6" /><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="18" cy="20" r="1.4" fill="currentColor"/></svg>
+        </button>
+        <button class="icon-btn burger" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile slide-down menu -->
+  <div class="mobile-menu glass-panel" id="mobile-menu" data-menu hidden>
+    <nav aria-label="Mobile">
+      <a href="#products" data-menu-link>Shop</a>
+      <a href="#drop" data-menu-link>Drop 01</a>
+      <a href="#lookbook" data-menu-link>Lookbook</a>
+      <a href="#story" data-menu-link>About</a>
+      <a href="#drop-alert" data-menu-link>Contact</a>
+    </nav>
+    <a class="btn btn--primary btn--block" href="#drop-alert" data-menu-link>Get the drop alert</a>
+  </div>
+
+  <!-- ============================================================
+       SIDE RAIL — desktop section navigation (glass capsule)
+       ============================================================ -->
+  <nav class="side-rail" aria-label="Sections" data-side-rail>
+    <ul class="glass-panel">
+      <li><a href="#hero" data-rail-link class="is-active"><span class="dot"></span><span class="label">Hero</span></a></li>
+      <li><a href="#drop" data-rail-link><span class="dot"></span><span class="label">Drop</span></a></li>
+      <li><a href="#products" data-rail-link><span class="dot"></span><span class="label">Products</span></a></li>
+      <li><a href="#lookbook" data-rail-link><span class="dot"></span><span class="label">Lookbook</span></a></li>
+      <li><a href="#story" data-rail-link><span class="dot"></span><span class="label">Story</span></a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" id="hero">
+      <div class="hero__media media" data-media data-label="zoya-hero-01.jpg">
+        <img src="assets/img/zoya-hero-01.jpg" alt="Model wearing the oversized white Zoya Studio tee, back view with the blurred blue ZOYA print" onerror="this.closest('[data-media]').classList.add('is-missing')" />
+        <div class="hero__scrim" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero__inner">
+        <p class="hero__kicker reveal" data-reveal>Drop 01</p>
+        <h1 class="hero__title reveal" data-reveal data-reveal-delay="1">Zoya Studio</h1>
+        <p class="hero__subtitle reveal" data-reveal data-reveal-delay="2">True For Now</p>
+        <p class="hero__lead reveal" data-reveal data-reveal-delay="3">Soft basics, bold graphic energy, built around a quiet chest mark and a blurred back identity.</p>
+        <div class="hero__actions reveal" data-reveal data-reveal-delay="4">
+          <a class="btn btn--primary" href="#products">Shop Drop 01</a>
+          <a class="btn btn--ghost" href="#lookbook">View Lookbook</a>
+        </div>
+      </div>
+
+      <!-- Floating glass spec card -->
+      <aside class="floating-card glass-panel" data-float aria-label="Drop 01 highlight">
+        <span class="floating-card__tag">Drop 01</span>
+        <p class="floating-card__line">Oversized tee</p>
+        <p class="floating-card__muted">Blue print · Limited first release</p>
+      </aside>
+
+      <a class="scroll-indicator" href="#drop" aria-label="Scroll to Drop 01">
+        <span class="scroll-indicator__track"><span class="scroll-indicator__dot"></span></span>
+      </a>
+    </section>
+
+    <!-- ============================================================
+         DROP INTRO
+         ============================================================ -->
+    <section class="drop-section section" id="drop">
+      <div class="shell">
+        <p class="eyebrow reveal" data-reveal>Drop 01 — True For Now</p>
+        <h2 class="section-title reveal" data-reveal data-reveal-delay="1">A first capsule, built with intention.</h2>
+        <p class="section-lead reveal" data-reveal data-reveal-delay="2">A first release of oversized essentials designed with intention, proportion and graphic contrast.</p>
+
+        <ul class="detail-list reveal" data-reveal data-reveal-delay="3">
+          <li class="glass-panel"><strong>Oversized fit</strong><span>Soft cotton, dropped shoulders, room to move.</span></li>
+          <li class="glass-panel"><strong>Chest emblem</strong><span>A quiet blue mark on the left chest.</span></li>
+          <li class="glass-panel"><strong>Blurred back print</strong><span>The large ZOYA graphic, softened and airbrushed.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CATEGORIES
+         ============================================================ -->
+    <section class="category-section section" id="categories">
+      <div class="shell">
+        <header class="section-head">
+          <h2 class="section-title reveal" data-reveal>Shop by category</h2>
+          <p class="section-lead reveal" data-reveal data-reveal-delay="1">The studio starts with tees. The structure is built to grow.</p>
+        </header>
+
+        <div class="category-grid">
+          <a class="category-card glass-panel reveal is-active" data-reveal href="#products">
+            <span class="category-card__status">Available now</span>
+            <span class="category-card__name">T-shirts</span>
+            <span class="category-card__desc">The first Zoya Studio essential.</span>
+            <span class="category-card__arrow" aria-hidden="true">→</span>
+          </a>
+          <div class="category-card glass-panel reveal" data-reveal data-reveal-delay="1" aria-disabled="true">
+            <span class="category-card__status">Coming soon</span>
+            <span class="category-card__name">Hoodies / Pulls</span>
+            <span class="category-card__desc">Future heavier shapes.</span>
+          </div>
+          <div class="category-card glass-panel reveal" data-reveal data-reveal-delay="2" aria-disabled="true">
+            <span class="category-card__status">Coming soon</span>
+            <span class="category-card__name">Accessories</span>
+            <span class="category-card__desc">Small graphic objects coming later.</span>
+          </div>
+          <div class="category-card glass-panel reveal" data-reveal data-reveal-delay="3" aria-disabled="true">
+            <span class="category-card__status">Coming soon</span>
+            <span class="category-card__name">Future drops</span>
+            <span class="category-card__desc">New pieces, same intention.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRODUCTS — rendered from assets/js/products.js
+         ============================================================ -->
+    <section class="products-section section" id="products">
+      <div class="shell">
+        <header class="section-head">
+          <h2 class="section-title reveal" data-reveal>Shop the drop</h2>
+          <p class="section-lead reveal" data-reveal data-reveal-delay="1">Two pieces. One identity. Hover a card to flip front and back.</p>
+        </header>
+
+        <!-- Category filter pills (animated switch handled in main.js). -->
+        <div class="filter-pills reveal" data-reveal data-reveal-delay="2" role="tablist" aria-label="Filter products">
+          <button class="pill glass-panel is-active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="pill glass-panel" type="button" data-filter="tshirts" role="tab" aria-selected="false">T-shirts</button>
+        </div>
+
+        <!-- Cards are injected here by main.js using window.ZOYA_PRODUCTS. -->
+        <div class="product-grid" data-product-grid></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         LOOKBOOK
+         ============================================================ -->
+    <section class="lookbook section" id="lookbook">
+      <div class="shell">
+        <header class="section-head">
+          <h2 class="section-title reveal" data-reveal>Lookbook</h2>
+          <p class="section-lead reveal" data-reveal data-reveal-delay="1">A quiet front. A blurred back. A first uniform for now.</p>
+        </header>
+
+        <div class="lookbook__grid">
+          <figure class="lookbook__item lookbook__item--wide reveal" data-reveal>
+            <div class="media" data-media data-label="zoya-model-back-blue.jpg">
+              <img loading="lazy" src="assets/img/zoya-model-back-blue.jpg" alt="Back view of the Zoya Studio tee showing the large blurred blue ZOYA print" onerror="this.closest('[data-media]').classList.add('is-missing')" />
+            </div>
+            <figcaption class="glass-panel"><strong>Blurred identity.</strong> Clear intention.</figcaption>
+          </figure>
+
+          <figure class="lookbook__item reveal" data-reveal data-reveal-delay="1">
+            <div class="media" data-media data-label="zoya-model-front-blue.jpg">
+              <img loading="lazy" src="assets/img/zoya-model-front-blue.jpg" alt="Front view of the Zoya Studio tee with the small blue chest emblem" onerror="this.closest('[data-media]').classList.add('is-missing')" />
+            </div>
+            <figcaption class="glass-panel"><strong>A quiet mark</strong> on the chest.</figcaption>
+          </figure>
+
+          <figure class="lookbook__item reveal" data-reveal data-reveal-delay="2">
+            <div class="media" data-media data-label="zoya-flat-back-blue.jpg">
+              <img loading="lazy" src="assets/img/zoya-flat-back-blue.jpg" alt="Flat lay of the Zoya Studio tee, back" onerror="this.closest('[data-media]').classList.add('is-missing')" />
+            </div>
+            <figcaption class="glass-panel"><strong>Built beyond</strong> the frame.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MANIFESTO / STORY
+         ============================================================ -->
+    <section class="manifesto section" id="story">
+      <div class="shell manifesto__inner">
+        <h2 class="manifesto__title reveal" data-reveal>Built beyond the frame</h2>
+        <div class="manifesto__body reveal" data-reveal data-reveal-delay="1">
+          <p>Form follows pure intention. Every single detail belongs to a larger structure. Zoya Studio begins with essentials made to exist beyond the frame.</p>
+          <p class="manifesto__sign">Designed in France.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         NEWSLETTER / DROP ALERT
+         No backend yet — submit falls back to a mailto link.
+         To connect Mailchimp / Brevo / Klaviyo / Formspree later,
+         see the comment in assets/js/main.js (handleDropAlert).
+         ============================================================ -->
+    <section class="drop-alert section" id="drop-alert">
+      <div class="shell">
+        <div class="drop-alert__card glass-panel reveal" data-reveal>
+          <div class="drop-alert__text">
+            <h2 class="section-title">Be first to know when Drop 01 opens.</h2>
+            <p class="section-lead">No spam. Just the drop, the moment it goes live.</p>
+          </div>
+          <form class="drop-alert__form" data-drop-alert action="mailto:hello@zoyastudio.fr" method="post" enctype="text/plain">
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email" />
+            <button class="btn btn--primary" type="submit">Drop alert</button>
+            <p class="drop-alert__status" data-alert-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="shell site-footer__inner">
+      <div class="site-footer__brand">
+        <span class="brand__name">Zoya Studio</span>
+        <p>True for now.</p>
+      </div>
+      <nav class="site-footer__links" aria-label="Footer">
+        <a href="https://www.tiktok.com" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="#drop-alert">Contact</a>
+        <a href="#legal">Legal</a>
+        <a href="#shipping">Shipping</a>
+        <a href="#returns">Returns</a>
+      </nav>
+    </div>
+    <p class="site-footer__copy">© <span data-year>2026</span> Zoya Studio. Designed in France.</p>
+  </footer>
+
+  <!-- ============================================================
+       PRODUCT MODAL (built once, populated by JS)
+       ============================================================ -->
+  <div class="modal" data-modal hidden>
+    <div class="modal__overlay glass-overlay" data-modal-close></div>
+    <div class="modal__dialog glass-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="icon-btn modal__close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="modal__media media" data-modal-media>
+        <img data-modal-img src="" alt="" />
+      </div>
+      <div class="modal__info">
+        <span class="modal__badge" data-modal-badge>Drop 01</span>
+        <h3 class="modal__title" id="modal-title" data-modal-name></h3>
+        <p class="modal__price" data-modal-price></p>
+        <p class="modal__desc" data-modal-desc></p>
+        <ul class="modal__tags" data-modal-tags></ul>
+        <div class="modal__sizes" data-modal-sizes></div>
+        <a class="btn btn--primary btn--block" data-modal-cta href="#drop-alert">Notify me</a>
+        <p class="modal__note">Drop 01 — limited first release.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       BOTTOM NAV — mobile only (glass)
+       ============================================================ -->
+  <nav class="bottom-glass-nav glass-panel" aria-label="Quick navigation" data-bottom-nav>
+    <a href="#hero" data-rail-link class="is-active">Home</a>
+    <a href="#products" data-rail-link>Shop</a>
+    <a href="#lookbook" data-rail-link>Look</a>
+    <a href="#drop-alert" data-rail-link>Alert</a>
+  </nav>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
