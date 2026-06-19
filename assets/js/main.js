@@ -219,8 +219,16 @@
 
     $("[data-modal-tags]", modal).innerHTML = (p.tags || [])
       .map(function (t) { return "<li>" + t + "</li>"; }).join("");
-    $("[data-modal-sizes]", modal).innerHTML = (p.availableSizes || [])
-      .map(function (s) { return '<span class="modal__size">' + s + "</span>"; }).join("");
+
+    var sizesWrap = $("[data-modal-sizes]", modal);
+    sizesWrap.innerHTML = (p.availableSizes || [])
+      .map(function (s) { return '<button class="modal__size" type="button" data-size="' + s + '">' + s + "</button>"; }).join("");
+    $$(".modal__size", sizesWrap).forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        $$(".modal__size", sizesWrap).forEach(function (b) { b.classList.remove("is-selected"); });
+        btn.classList.add("is-selected");
+      });
+    });
 
     var cta = $("[data-modal-cta]", modal);
     if (p.status === "available" && p.checkoutUrl) {
