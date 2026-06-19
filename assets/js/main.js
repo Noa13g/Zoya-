@@ -100,13 +100,46 @@
     if (!p || !modal) return;
     lastFocused = document.activeElement;
 
+    // Build image gallery (front + back if available).
+    var galleryImgs = [{ src: p.images.front, label: frontFile(p), alt: p.name + " — face" }];
+    if (p.images && p.images.back) {
+      galleryImgs.push({ src: p.images.back, label: backFile(p), alt: p.name + " — dos" });
+    }
+    var galleryIdx = 0;
     var mediaWrap = $("[data-modal-media]", modal);
-    mediaWrap.classList.remove("is-missing");
-    mediaWrap.setAttribute("data-label", frontFile(p));
     var img = $("[data-modal-img]", modal);
-    img.onerror = function () { mediaWrap.classList.add("is-missing"); };
-    img.src = p.images.front;
-    img.alt = p.name;
+    var dotsWrap = $("[data-gallery-dots]", modal);
+    var prevBtn = $("[data-gallery-prev]", modal);
+    var nextBtn = $("[data-gallery-next]", modal);
+
+    function showGalleryImg(idx) {
+      galleryIdx = idx;
+      var entry = galleryImgs[idx];
+      mediaWrap.classList.remove("is-missing");
+      mediaWrap.setAttribute("data-label", entry.label);
+      img.onerror = function () { mediaWrap.classList.add("is-missing"); };
+      img.src = entry.src;
+      img.alt = entry.alt;
+      $$("[data-gallery-dot]", modal).forEach(function (d, i) {
+        d.classList.toggle("is-active", i === idx);
+      });
+    }
+
+    var hasMultiple = galleryImgs.length > 1;
+    dotsWrap.innerHTML = galleryImgs.map(function (_, i) {
+      return '<button class="modal__dot' + (i === 0 ? " is-active" : "") + '" data-gallery-dot aria-label="Photo ' + (i + 1) + '"></button>';
+    }).join("");
+    dotsWrap.hidden = !hasMultiple;
+    if (prevBtn) prevBtn.hidden = !hasMultiple;
+    if (nextBtn) nextBtn.hidden = !hasMultiple;
+
+    $$("[data-gallery-dot]", modal).forEach(function (dot, i) {
+      dot.onclick = function () { showGalleryImg(i); };
+    });
+    if (prevBtn) prevBtn.onclick = function () { showGalleryImg((galleryIdx - 1 + galleryImgs.length) % galleryImgs.length); };
+    if (nextBtn) nextBtn.onclick = function () { showGalleryImg((galleryIdx + 1) % galleryImgs.length); };
+
+    showGalleryImg(0);
 
     $("[data-modal-badge]", modal).textContent = p.badge || "Drop 01";
     $("[data-modal-name]", modal).textContent = p.name;
