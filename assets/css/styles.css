@@ -690,8 +690,10 @@ a.category-card:hover .category-card__arrow { transform: translateX(4px); }
   .manifesto__inner { grid-template-columns: 1fr; }
   .drop-alert__card { grid-template-columns: 1fr; }
   .lookbook__grid { grid-template-columns: 1fr; }
-  .modal__dialog { grid-template-columns: 1fr; }
-  .modal__media { aspect-ratio: 16 / 11; }
+  .modal__dialog { grid-template-columns: 1fr; max-height: 88vh; }
+  .modal__media { aspect-ratio: 3 / 2; }
+  .modal__info { padding: 18px 22px; gap: 8px; }
+  .modal__title { font-size: 1.3rem; }
   .bottom-glass-nav { display: flex; }
   /* Hero */
   .hero { min-height: 88vh; }
@@ -710,6 +712,19 @@ a.category-card:hover .category-card__arrow { transform: translateX(4px); }
   .hero__visual img { object-position: 58% 2%; } /* faces clear the fixed nav bar */
   .hero__footer { padding-bottom: 76px; /* clear bottom nav */ }
   .hero__actions .btn { flex: 1; }
+  /* Modal — bottom sheet on phones */
+  .modal { padding: 0; align-items: flex-end; }
+  .modal__dialog {
+    width: 100%;
+    max-height: 88svh;
+    max-height: 88vh; /* fallback for older Safari */
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    transform: translateY(30px); opacity: 0;
+  }
+  .modal.is-open .modal__dialog { transform: translateY(0); opacity: 1; }
+  .modal__media { aspect-ratio: 4 / 3; }
+  .modal__info { padding: 14px 18px 88px; gap: 6px; } /* 88px clears the bottom nav */
+  .modal__title { font-size: 1.2rem; }
 }
 
 /* ============================================================
