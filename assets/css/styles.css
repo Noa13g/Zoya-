@@ -339,76 +339,119 @@ button { font: inherit; cursor: pointer; }
     linear-gradient(160deg, #f0eee7, #e7e5dd);
 }
 
-/* -------------------- 9. Hero (editorial: title → full-width image → CTA) -------------------- */
+/* -------------------- 9. Hero — full-screen image with title overlay -------------------- */
 .hero {
-  display: flex; flex-direction: column;
-  background: var(--color-bg);
   position: relative;
+  min-height: 92vh;
+  display: flex; flex-direction: column; justify-content: space-between;
+  overflow: hidden;
 }
 
-/* — 9a. Typographic header — */
-.hero__header {
-  max-width: var(--shell-max); margin-inline: auto; width: 100%;
-  padding: clamp(80px, 11vw, 140px) var(--shell-pad) clamp(14px, 2vw, 24px);
-}
-.hero__kicker {
-  font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase;
-  font-weight: 600; margin: 0 0 12px; color: var(--color-blue);
-}
-.hero__title {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(4.5rem, 14vw, 12rem);
-  text-transform: uppercase; line-height: 0.88; letter-spacing: -0.03em;
-  color: var(--color-text);
-}
-
-/* — 9b. Full-width image — */
+/* — 9a. Full-bleed background image — */
 .hero__visual {
-  position: relative; width: 100%; overflow: hidden; background: #ecebe4;
+  position: absolute; inset: 0; z-index: 0; background: #ecebe4;
 }
 .hero__visual img {
-  display: block; width: 100%;
-  aspect-ratio: 16 / 7;          /* ~630px at 1440; crisp editorial crop */
+  width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 28%;   /* preserves faces + ZOYA back print */
+  object-position: center 22%;  /* sky + faces + ZOYA back print all visible */
   transform: scale(1.04);
   transition: transform var(--duration-slow) var(--ease-out);
 }
 .hero.is-ready .hero__visual img { transform: scale(1); }
 
-/* Elegant placeholder when image is missing */
+/* Dual-fade scrim: darkens top (title) + bottom (CTA), leaves the middle untouched */
+.hero__scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.40) 0%,
+    rgba(0, 0, 0, 0)    28%,
+    rgba(0, 0, 0, 0)    58%,
+    rgba(0, 0, 0, 0.48) 100%
+  );
+}
+
+/* Placeholder when image is missing */
 .hero__visual[data-media].is-missing img { display: none; }
 .hero__visual[data-media].is-missing::after {
   content: attr(data-label);
-  position: absolute; inset: 0; aspect-ratio: 16 / 7;
+  position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
   font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--color-muted);
   background:
-    repeating-linear-gradient(45deg, rgba(0,87,255,0.04) 0 14px, rgba(0,87,255,0) 14px 28px),
+    repeating-linear-gradient(45deg, rgba(0,87,255,0.04) 0 14px, transparent 14px 28px),
     linear-gradient(160deg, #f0eee7, #e7e5dd);
 }
 
-/* — 9c. Floating glass card (bottom-right of image) — */
+/* — 9b. Title superimposed at the top — */
+.hero__header {
+  position: relative; z-index: 2;
+  width: 100%; max-width: var(--shell-max); margin-inline: auto;
+  padding: clamp(80px, 11vw, 140px) var(--shell-pad) 0;
+}
+.hero__kicker {
+  font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase;
+  font-weight: 600; margin: 0 0 12px; color: rgba(255, 255, 255, 0.88);
+}
+.hero__title {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(4rem, 13vw, 11rem);
+  text-transform: uppercase; line-height: 0.88; letter-spacing: -0.03em;
+  color: #fff;
+  text-shadow: 0 6px 40px rgba(0, 0, 0, 0.22);
+}
+
+/* — 9c. Floating glass spec card (top-right, aligned with title) — */
 .floating-card {
   position: absolute; z-index: 3;
-  right: clamp(14px, 4vw, 52px); bottom: clamp(14px, 4vw, 52px);
-  padding: 16px 22px; border-radius: var(--radius-lg); min-width: 200px;
+  right: clamp(14px, 4vw, 52px);
+  top: clamp(80px, 11vw, 140px); /* mirrors header top padding */
+  padding: 16px 22px; border-radius: var(--radius-lg); min-width: 190px;
   animation: float 6s ease-in-out infinite;
 }
 .floating-card__tag { display: inline-block; color: var(--color-blue); font-weight: 700; margin-bottom: 8px; }
-.floating-card__line { margin: 0; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 1.1rem; }
+.floating-card__line { margin: 0; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 1.05rem; }
 .floating-card__muted { margin: 4px 0 0; font-size: 0.82rem; color: var(--color-muted); }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-/* — 9d. Scroll indicator (bottom-centre of image) — */
+/* — 9d. CTA row superimposed at the bottom — */
+.hero__footer {
+  position: relative; z-index: 2;
+  width: 100%; max-width: var(--shell-max); margin-inline: auto;
+  padding: 0 var(--shell-pad) clamp(44px, 7vw, 84px);
+  display: grid; grid-template-columns: 1.3fr 0.7fr;
+  align-items: end; gap: clamp(20px, 4vw, 48px);
+}
+.hero__subtitle {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.2rem, 2.8vw, 2.2rem);
+  text-transform: uppercase; letter-spacing: 0.02em;
+  color: var(--color-blue); margin: 0 0 12px;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35);
+}
+.hero__lead {
+  margin: 0; max-width: 46ch;
+  font-size: clamp(0.95rem, 1.3vw, 1.12rem);
+  color: rgba(255, 255, 255, 0.85);
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+/* Ghost button on dark hero background → white outline */
+.hero__btn-ghost {
+  --btn-fg: #fff;
+  border-color: rgba(255, 255, 255, 0.55) !important;
+}
+.hero__btn-ghost:hover { --btn-bg: rgba(255, 255, 255, 0.14); border-color: rgba(255, 255, 255, 0.8) !important; }
+
+/* — 9e. Scroll indicator (bottom-centre, inside the hero) — */
 .scroll-indicator {
   position: absolute; z-index: 3; left: 50%; bottom: 18px; transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.88);
 }
 .scroll-indicator__track {
   display: block; width: 22px; height: 36px;
-  border: 1.5px solid rgba(255, 255, 255, 0.75); border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(255, 255, 255, 0.7); border-radius: var(--radius-pill);
   position: relative;
 }
 .scroll-indicator__dot {
@@ -417,22 +460,6 @@ button { font: inherit; cursor: pointer; }
   animation: scrollDot 1.8s var(--ease-out) infinite;
 }
 @keyframes scrollDot { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(14px); opacity: 0; } 100% { opacity: 0; } }
-
-/* — 9e. CTA row below image — */
-.hero__footer {
-  max-width: var(--shell-max); margin-inline: auto; width: 100%;
-  padding: clamp(20px, 3.5vw, 44px) var(--shell-pad) clamp(48px, 8vw, 96px);
-  display: grid; grid-template-columns: 1.3fr 0.7fr;
-  gap: clamp(20px, 4vw, 48px); align-items: center;
-}
-.hero__subtitle {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(1.2rem, 2.8vw, 2.2rem);
-  text-transform: uppercase; letter-spacing: 0.02em;
-  color: var(--color-blue); margin: 0 0 12px;
-}
-.hero__lead { margin: 0; max-width: 46ch; font-size: clamp(1rem, 1.4vw, 1.15rem); color: var(--color-muted); }
-.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
 
 /* -------------------- 10. Drop intro + detail list -------------------- */
 .drop-section .section-title { max-width: 16ch; }
@@ -667,8 +694,8 @@ a.category-card:hover .category-card__arrow { transform: translateX(4px); }
   .modal__media { aspect-ratio: 16 / 11; }
   .bottom-glass-nav { display: flex; }
   /* Hero */
-  .hero__title { font-size: clamp(3.5rem, 18vw, 7rem); }
-  .hero__visual img { aspect-ratio: 4 / 3; object-position: center 20%; }
+  .hero { min-height: 88vh; }
+  .hero__title { font-size: clamp(3.2rem, 17vw, 6.5rem); }
   .hero__footer { grid-template-columns: 1fr; }
   .hero__actions { justify-content: flex-start; }
   .floating-card { display: none; }
@@ -678,10 +705,10 @@ a.category-card:hover .category-card__arrow { transform: translateX(4px); }
   :root { --shell-pad: 20px; }
   .product-grid { grid-template-columns: 1fr; }
   .category-grid { grid-template-columns: 1fr; }
-  /* Hero on small phones: taller crop, keep ZOYA print visible */
-  .hero__visual img { aspect-ratio: 3 / 2; object-position: center 15%; }
-  .hero__header { padding-bottom: 10px; }
-  .hero__footer { padding-bottom: 72px; /* clear bottom nav */ }
+  /* Hero on small phones */
+  .hero { min-height: 85vh; }
+  .hero__visual img { object-position: 58% 18%; } /* centre on models, show ZOYA pink text */
+  .hero__footer { padding-bottom: 76px; /* clear bottom nav */ }
   .hero__actions .btn { flex: 1; }
 }
 

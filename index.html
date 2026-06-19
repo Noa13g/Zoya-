@@ -92,34 +92,34 @@
 
   <main>
     <!-- ============================================================
-         HERO — editorial layout: title → full-width image → CTA
+         HERO — full-screen cover: image behind, title + CTA on top
          ============================================================ -->
     <section class="hero" id="hero">
 
-      <!-- 1. Typographic header (dark text on the page background) -->
-      <div class="hero__header">
-        <p class="hero__kicker reveal" data-reveal>Drop 01</p>
-        <h1 class="hero__title reveal" data-reveal data-reveal-delay="1">Zoya<br>Studio</h1>
-      </div>
-
-      <!-- 2. Full-width image — float card + scroll cue live here -->
+      <!-- Background image (absolute, fills section) -->
       <div class="hero__visual" data-media data-label="zoya-hero-01.png">
         <img
           src="assets/img/zoya-hero-01.png"
           alt="Two models on a Mediterranean terrace wearing Zoya Studio Drop 01 — blue chest emblem (front) and pink ZOYA back print"
           onerror="this.closest('[data-media]').classList.add('is-missing')"
         />
-        <aside class="floating-card glass-panel" data-float aria-label="Drop 01 highlight">
-          <span class="floating-card__tag">Drop 01</span>
-          <p class="floating-card__line">Oversized tee</p>
-          <p class="floating-card__muted">Blue &amp; Pink print · Limited first release</p>
-        </aside>
-        <a class="scroll-indicator" href="#drop" aria-label="Scroll to Drop 01">
-          <span class="scroll-indicator__track"><span class="scroll-indicator__dot"></span></span>
-        </a>
+        <div class="hero__scrim" aria-hidden="true"></div>
       </div>
 
-      <!-- 3. Subtitle + CTA row -->
+      <!-- Title superimposed at the top -->
+      <div class="hero__header">
+        <p class="hero__kicker reveal" data-reveal>Drop 01</p>
+        <h1 class="hero__title reveal" data-reveal data-reveal-delay="1">Zoya<br>Studio</h1>
+      </div>
+
+      <!-- Floating spec card (top-right, same level as title) -->
+      <aside class="floating-card glass-panel" data-float aria-label="Drop 01 highlight">
+        <span class="floating-card__tag">Drop 01</span>
+        <p class="floating-card__line">Oversized tee</p>
+        <p class="floating-card__muted">Blue &amp; Pink print · Limited first release</p>
+      </aside>
+
+      <!-- Subtitle + CTA superimposed at the bottom -->
       <div class="hero__footer">
         <div class="hero__text">
           <p class="hero__subtitle reveal" data-reveal>True For Now</p>
@@ -127,9 +127,13 @@
         </div>
         <div class="hero__actions reveal" data-reveal data-reveal-delay="2">
           <a class="btn btn--primary" href="#products">Shop Drop 01</a>
-          <a class="btn btn--ghost" href="#lookbook">View Lookbook</a>
+          <a class="btn btn--ghost hero__btn-ghost" href="#lookbook">View Lookbook</a>
         </div>
       </div>
+
+      <a class="scroll-indicator" href="#drop" aria-label="Scroll to Drop 01">
+        <span class="scroll-indicator__track"><span class="scroll-indicator__dot"></span></span>
+      </a>
 
     </section>
 
