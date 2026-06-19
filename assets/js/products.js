@@ -1,5 +1,5 @@
 /* ============================================================
-   ZOYA STUDIO — products.js
+   RIVA STUDIO — products.js
    Single source of truth for the catalogue.
 
    HOW TO ADD A PRODUCT
@@ -17,29 +17,29 @@
    labelled placeholder automatically (no broken image icon).
    ============================================================ */
 
-window.ZOYA_PRODUCTS = [
+window.RIVA_PRODUCTS = [
   {
-    id: "zoya-tee-blue",
-    name: "ZOYA T-Shirt — Blue Print",
+    id: "riva-tee-blue",
+    name: "RIVA T-Shirt — Blue Print",
     category: "tshirts",
     colorName: "Blue print",
     colorHex: "#0057ff",
     badge: "First release",
     status: "soon",            // "available" once the drop opens
     price: null,               // e.g. "€45" — leave null for "Coming soon"
-    checkoutUrl: null,         // e.g. "https://shop.zoyastudio.fr/..." for a real checkout
+    checkoutUrl: null,         // e.g. "https://shop.rivastudio.fr/..." for a real checkout
     images: {
       front: "assets/img/product-front-blue.jpg",
       back: "assets/img/product-back-blue.jpg"
     },
     description:
-      "Oversized white tee with a small blue chest emblem and a blurred ZOYA back print.",
+      "Oversized white tee with a small blue chest emblem and a blurred RIVA back print.",
     tags: ["Oversized fit", "Drop 01", "Blue print"],
     availableSizes: ["S", "M", "L", "XL"]
   },
   {
-    id: "zoya-tee-pink",
-    name: "ZOYA T-Shirt — Pink Print",
+    id: "riva-tee-pink",
+    name: "RIVA T-Shirt — Pink Print",
     category: "tshirts",
     colorName: "Pink print",
     colorHex: "#ee7cab",
@@ -52,7 +52,7 @@ window.ZOYA_PRODUCTS = [
       back: "assets/img/product-back-pink.jpg"
     },
     description:
-      "Oversized white tee with a pink variation of the ZOYA graphic identity.",
+      "Oversized white tee with a pink variation of the RIVA graphic identity.",
     tags: ["Oversized fit", "Drop 01", "Pink print"],
     availableSizes: ["S", "M", "L", "XL"]
   }
