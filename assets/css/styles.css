@@ -305,31 +305,49 @@ button { font: inherit; cursor: pointer; }
 /* -------------------- 7. Side rail (desktop section nav) -------------------- */
 .side-rail {
   position: fixed; z-index: 900;
-  right: 20px; top: 50%; transform: translateY(-50%);
+  right: 22px; top: 50%; transform: translateY(-50%);
 }
 .side-rail ul {
-  list-style: none; margin: 0; padding: 12px 10px;
-  display: grid; gap: 4px; border-radius: var(--radius-pill);
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  position: relative;
+}
+/* Thin connecting line behind the dots */
+.side-rail ul::before {
+  content: "";
+  position: absolute; left: 50%; top: 10px; bottom: 10px;
+  width: 1px; transform: translateX(-50%);
+  background: rgba(17, 17, 17, 0.15);
+  pointer-events: none;
 }
 .side-rail a {
-  display: flex; align-items: center; gap: 10px; flex-direction: row-reverse;
-  padding: 6px; border-radius: var(--radius-pill);
+  position: relative;
+  display: flex; align-items: center;
+  padding: 9px 0;
 }
 .side-rail .dot {
-  width: 9px; height: 9px; border-radius: 50%;
-  background: rgba(17, 17, 17, 0.25);
-  transition: background var(--duration-fast), transform var(--duration-fast) var(--ease-out);
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(17, 17, 17, 0.2);
+  border: 1.5px solid rgba(17, 17, 17, 0.18);
+  position: relative; z-index: 1;
+  transition: background var(--duration-fast), transform var(--duration-fast) var(--ease-out), border-color var(--duration-fast);
 }
 .side-rail .label {
-  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--color-muted);
-  max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0;
-  transition: max-width var(--duration-normal) var(--ease-out), opacity var(--duration-normal);
+  position: absolute; right: 18px;
+  font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
+  color: var(--color-text); white-space: nowrap;
+  opacity: 0; transform: translateX(4px);
+  transition: opacity var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
+  pointer-events: none;
+  text-shadow: 0 1px 6px rgba(255,255,255,0.7);
 }
-.side-rail a:hover .label,
-.side-rail a.is-active .label { max-width: 90px; opacity: 1; }
-.side-rail a:hover .dot { transform: scale(1.2); }
-.side-rail a.is-active .dot { background: var(--color-blue); transform: scale(1.25); }
+.side-rail a:hover .label { opacity: 1; transform: translateX(0); }
+.side-rail a:hover .dot { transform: scale(1.4); background: rgba(17,17,17,0.4); }
+.side-rail a.is-active .dot {
+  background: var(--color-blue); border-color: var(--color-blue);
+  transform: scale(1.5);
+  box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.18);
+}
 
 /* -------------------- 8. Media + placeholder fallback -------------------- */
 .media { position: relative; overflow: hidden; background: #ecebe4; border-radius: var(--radius); }
