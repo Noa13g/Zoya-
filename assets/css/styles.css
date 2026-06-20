@@ -757,6 +757,10 @@ a.category-card:hover .category-card__arrow { transform: translateX(4px); }
   .primary-nav,
   .nav-actions .btn--ghost { display: none; }
   .burger { display: inline-flex; }
+  /* Compact navbar on mobile */
+  .liquid-nav { padding: 6px 10px 6px 12px; gap: 10px; }
+  .brand__mark { width: 40px; height: 40px; }
+  .brand__name { display: none; }
   .detail-list { grid-template-columns: 1fr; }
   .manifesto__inner { grid-template-columns: 1fr; }
   .drop-alert__card { grid-template-columns: 1fr; }
