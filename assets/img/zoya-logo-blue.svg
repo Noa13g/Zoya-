@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Zoya Studio brand mark.
-  A four-heart clover with the letters Z (top) / O (left) / Y (right) / A (bottom)
-  integrated on each leaf. Single accent blue, no extra wordmark.
-  This is the placeholder vector identity; replace with the final logo file if needed.
--->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Zoya Studio logo">
-  <title>Zoya Studio</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="RYΘA Studio logo">
+  <title>RYΘA Studio</title>
   <g transform="translate(120 120) scale(3.6)">
-    <!-- Each heart: tip pinned to centre, lobes pointing outward, rotated around the origin. -->
     <g fill="#0057ff">
       <path transform="translate(-12 -21.35)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
       <path transform="rotate(90) translate(-12 -21.35)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -16,11 +9,10 @@
       <path transform="rotate(270) translate(-12 -21.35)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
     </g>
   </g>
-  <!-- Letters seated on each leaf. -->
   <g fill="#ffffff" font-family="Arial Black, Arial, sans-serif" font-weight="800" font-size="34" text-anchor="middle">
-    <text x="120" y="84">Z</text>
-    <text x="74" y="132">O</text>
-    <text x="166" y="132">Y</text>
+    <text x="120" y="84">R</text>
+    <text x="74"  y="132">Y</text>
+    <text x="166" y="132">Θ</text>
     <text x="120" y="178">A</text>
   </g>
 </svg>
