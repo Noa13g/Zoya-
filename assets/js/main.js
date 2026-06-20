@@ -1,10 +1,10 @@
 /* ============================================================
-   RIVA STUDIO — main.js
+   RYOA STUDIO — main.js
    All interactions for the static site. No dependencies.
 
    Sections:
      1. Helpers
-     2. Product rendering (from window.RIVA_PRODUCTS)
+     2. Product rendering (from window.RYOA_PRODUCTS)
      3. Product modal
      4. Category filter pills
      5. Header: scroll state + progress bar
@@ -39,9 +39,9 @@
       'drop.lead': "Une première collection d'essentiels oversize conçus avec intention, proportion et contraste graphique.",
       'drop.fit.title': 'Coupe oversize', 'drop.fit.desc': 'Coton doux, épaules tombantes, liberté de mouvement.',
       'drop.chest.title': 'Emblème poitrine', 'drop.chest.desc': 'Un discret marquage bleu sur le côté gauche de la poitrine.',
-      'drop.back.title': 'Print dos flou', 'drop.back.desc': 'Le grand graphique RIVA, adouci et aérographié.',
+      'drop.back.title': 'Print dos flou', 'drop.back.desc': 'Le grand graphique RYOA, adouci et aérographié.',
       'cat.title': 'Voir par catégorie', 'cat.lead': 'Le studio commence avec des tees. La structure est faite pour grandir.',
-      'cat.available': 'Disponible maintenant', 'cat.tshirt.desc': 'Le premier essentiel RIVA Studio.',
+      'cat.available': 'Disponible maintenant', 'cat.tshirt.desc': 'Le premier essentiel RYOA Studio.',
       'cat.soon': 'Bientôt disponible', 'cat.hoodies.desc': 'Prochaines pièces plus lourdes.',
       'cat.acc.desc': 'Petits objets graphiques à venir.', 'cat.future.desc': 'Nouvelles pièces, même intention.',
       'products.title': 'La boutique', 'products.lead': 'Deux pièces. Une identité. Survolez une carte pour voir le dos.',
@@ -50,7 +50,7 @@
       'look.blue.front': '<strong>Print bleu</strong> — face.', 'look.blue.back': '<strong>Print bleu</strong> — dos.',
       'look.pink.front': '<strong>Print rose</strong> — face.', 'look.pink.back': '<strong>Print rose</strong> — dos.',
       'story.title': 'Construit au-delà du cadre',
-      'story.body': "La forme suit l'intention pure. Chaque détail appartient à une structure plus grande. RIVA Studio commence avec des essentiels conçus pour exister au-delà du cadre.",
+      'story.body': "La forme suit l'intention pure. Chaque détail appartient à une structure plus grande. RYOA Studio commence avec des essentiels conçus pour exister au-delà du cadre.",
       'alert.title': 'Sois le premier à savoir quand le Drop 01 ouvre.',
       'alert.lead': "Pas de spam. Juste l'alerte, au moment où ça tombe.",
       'alert.btn': 'Alerte drop', 'alert.success': 'Merci — tu es sur la liste pour le Drop 01.',
@@ -71,9 +71,9 @@
       'drop.lead': 'A first release of oversized essentials designed with intention, proportion and graphic contrast.',
       'drop.fit.title': 'Oversized fit', 'drop.fit.desc': 'Soft cotton, dropped shoulders, room to move.',
       'drop.chest.title': 'Chest emblem', 'drop.chest.desc': 'A quiet blue mark on the left chest.',
-      'drop.back.title': 'Blurred back print', 'drop.back.desc': 'The large RIVA graphic, softened and airbrushed.',
+      'drop.back.title': 'Blurred back print', 'drop.back.desc': 'The large RYOA graphic, softened and airbrushed.',
       'cat.title': 'Shop by category', 'cat.lead': 'The studio starts with tees. The structure is built to grow.',
-      'cat.available': 'Available now', 'cat.tshirt.desc': 'The first RIVA Studio essential.',
+      'cat.available': 'Available now', 'cat.tshirt.desc': 'The first RYOA Studio essential.',
       'cat.soon': 'Coming soon', 'cat.hoodies.desc': 'Future heavier shapes.',
       'cat.acc.desc': 'Small graphic objects coming later.', 'cat.future.desc': 'New pieces, same intention.',
       'products.title': 'Shop the drop', 'products.lead': 'Two pieces. One identity. Hover a card to flip front and back.',
@@ -82,7 +82,7 @@
       'look.blue.front': '<strong>Blue print</strong> — front.', 'look.blue.back': '<strong>Blue print</strong> — back.',
       'look.pink.front': '<strong>Pink print</strong> — front.', 'look.pink.back': '<strong>Pink print</strong> — back.',
       'story.title': 'Built beyond the frame',
-      'story.body': 'Form follows pure intention. Every single detail belongs to a larger structure. RIVA Studio begins with essentials made to exist beyond the frame.',
+      'story.body': 'Form follows pure intention. Every single detail belongs to a larger structure. RYOA Studio begins with essentials made to exist beyond the frame.',
       'alert.title': 'Be first to know when Drop 01 opens.',
       'alert.lead': 'No spam. Just the drop, the moment it goes live.',
       'alert.btn': 'Drop alert', 'alert.success': "Thanks — you're on the list for Drop 01.",
@@ -96,7 +96,7 @@
   var currentFilter = 'all';
 
   /* -------------------- 2. Product rendering -------------------- */
-  var products = window.RIVA_PRODUCTS || [];
+  var products = window.RYOA_PRODUCTS || [];
   var grid = $("[data-product-grid]");
 
   function priceLabel(p) {
@@ -417,7 +417,7 @@
   function switchLang(lang) {
     currentLang = lang;
     document.documentElement.lang = lang;
-    try { localStorage.setItem('riva-lang', lang); } catch (e) {}
+    try { localStorage.setItem('ryoa-lang', lang); } catch (e) {}
     $$('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       if (T[lang][key] !== undefined) el.textContent = T[lang][key];
@@ -439,6 +439,6 @@
   observeReveals($$("[data-reveal]"));
   onScroll();
   var _initLang = null;
-  try { _initLang = localStorage.getItem('riva-lang'); } catch (e) {}
+  try { _initLang = localStorage.getItem('ryoa-lang'); } catch (e) {}
   switchLang(_initLang === 'en' ? 'en' : 'fr');
 })();
