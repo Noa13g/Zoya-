@@ -229,7 +229,7 @@ button { font: inherit; cursor: pointer; }
 .site-header.is-scrolled .liquid-nav { box-shadow: 0 16px 50px rgba(17, 17, 17, 0.16); }
 
 .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); }
-.brand__mark { width: 48px; height: 48px; }
+.brand__mark { width: 64px; height: 64px; }
 .brand__name {
   font-weight: 800; font-size: 1.05rem;
   text-transform: uppercase; letter-spacing: 0.02em;
