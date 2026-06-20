@@ -313,10 +313,11 @@ button { font: inherit; cursor: pointer; }
 }
 .side-rail a {
   display: flex; align-items: center; flex-direction: row-reverse; gap: 8px;
-  padding: 6px 7px;
+  height: 30px;
+  padding: 0 10px;
   border-radius: var(--radius-pill);
   overflow: hidden; white-space: nowrap;
-  max-width: 26px;
+  max-width: 30px;
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
@@ -331,9 +332,9 @@ button { font: inherit; cursor: pointer; }
     backdrop-filter: blur(14px) saturate(160%);
   }
 }
-.side-rail a:hover { max-width: 110px; background: rgba(255,255,255,0.75); }
+.side-rail a:hover { max-width: 115px; background: rgba(255,255,255,0.75); }
 .side-rail a.is-active {
-  max-width: 110px;
+  max-width: 115px;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10);
 }
