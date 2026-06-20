@@ -1,24 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 112" role="img" aria-label="RYΘΛ Studio logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 95" role="img" aria-label="RYΘΛ Studio logo">
   <title>RYΘΛ Studio</title>
 
-  <!-- Decorative top spike -->
-  <line x1="50" y1="1" x2="50" y2="10" stroke="#0057ff" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="50" cy="4.5" r="3.5" fill="#0057ff"/>
+  <defs>
+    <!-- Heart petal: bumps at top (y<0), point at bottom (y=16), centered at origin -->
+    <path id="petal"
+      d="M 0,16
+         C -18,10 -19,-5 -10,-13
+         C -5,-17 0,-11 0,-11
+         C 0,-11 5,-17 10,-13
+         C 19,-5 18,10 0,16 Z"/>
+  </defs>
 
-  <!-- 4 circular petals -->
-  <circle cx="50" cy="32" r="24" fill="#0057ff"/>
-  <circle cx="26" cy="62" r="24" fill="#0057ff"/>
-  <circle cx="74" cy="62" r="24" fill="#0057ff"/>
-  <circle cx="50" cy="92" r="24" fill="#0057ff"/>
+  <!-- Decorative crown: 3 rounded lobes + connecting stem -->
+  <circle cx="50" cy="8"  r="5"   fill="white" stroke="#0057ff" stroke-width="1.8"/>
+  <circle cx="43" cy="14" r="4.5" fill="white" stroke="#0057ff" stroke-width="1.8"/>
+  <circle cx="57" cy="14" r="4.5" fill="white" stroke="#0057ff" stroke-width="1.8"/>
+  <line x1="50" y1="22" x2="50" y2="25" stroke="#0057ff" stroke-width="2" stroke-linecap="round"/>
 
-  <!-- Letters centered in each petal -->
-  <text x="50"  y="40"  text-anchor="middle" fill="white"
-        font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22">R</text>
-  <text x="26"  y="70"  text-anchor="middle" fill="white"
-        font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22">Y</text>
-  <text x="74"  y="70"  text-anchor="middle" fill="white"
-        font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22">Θ</text>
-  <text x="50"  y="100" text-anchor="middle" fill="white"
-        font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22">Λ</text>
+  <!-- Top petal: R (center 50,42 — point at logo center 50,58) -->
+  <use href="#petal" transform="translate(50,42)"
+       fill="white" stroke="#0057ff" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="50" cy="42" r="9" fill="none" stroke="#0057ff" stroke-width="1.2"/>
+  <text x="50" y="42" text-anchor="middle" dominant-baseline="central"
+        fill="#0057ff" font-family="Georgia, 'Times New Roman', serif"
+        font-size="12" font-weight="bold">R</text>
+
+  <!-- Left petal: Y (center 34,58 — point at logo center 50,58) -->
+  <use href="#petal" transform="translate(34,58) rotate(-90)"
+       fill="white" stroke="#0057ff" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="34" cy="58" r="9" fill="none" stroke="#0057ff" stroke-width="1.2"/>
+  <text x="34" y="58" text-anchor="middle" dominant-baseline="central"
+        fill="#0057ff" font-family="Georgia, 'Times New Roman', serif"
+        font-size="12" font-weight="bold">Y</text>
+
+  <!-- Right petal: Θ (center 66,58 — point at logo center 50,58) -->
+  <use href="#petal" transform="translate(66,58) rotate(90)"
+       fill="white" stroke="#0057ff" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="66" cy="58" r="9" fill="none" stroke="#0057ff" stroke-width="1.2"/>
+  <text x="66" y="58" text-anchor="middle" dominant-baseline="central"
+        fill="#0057ff" font-family="Georgia, 'Times New Roman', serif"
+        font-size="12" font-weight="bold">Θ</text>
+
+  <!-- Bottom petal: Λ (center 50,74 — point at logo center 50,58) -->
+  <use href="#petal" transform="translate(50,74) rotate(180)"
+       fill="white" stroke="#0057ff" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="50" cy="74" r="9" fill="none" stroke="#0057ff" stroke-width="1.2"/>
+  <text x="50" y="74" text-anchor="middle" dominant-baseline="central"
+        fill="#0057ff" font-family="Georgia, 'Times New Roman', serif"
+        font-size="12" font-weight="bold">Λ</text>
 </svg>
