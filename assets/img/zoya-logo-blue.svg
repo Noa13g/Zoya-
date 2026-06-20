@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="RYΘA Studio logo">
-  <title>RYΘA Studio</title>
-  <g transform="translate(120 120) scale(3.6)">
-    <g fill="#0057ff">
-      <path transform="translate(-12 -21.35)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-      <path transform="rotate(90) translate(-12 -21.35)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-      <path transform="rotate(180) translate(-12 -21.35)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-      <path transform="rotate(270) translate(-12 -21.35)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-    </g>
-  </g>
-  <g fill="#ffffff" font-family="Arial Black, Arial, sans-serif" font-weight="800" font-size="34" text-anchor="middle">
-    <text x="120" y="84">R</text>
-    <text x="74"  y="132">Y</text>
-    <text x="166" y="132">Θ</text>
-    <text x="120" y="178">Λ</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 112" role="img" aria-label="RYΘΛ Studio logo">
+  <title>RYΘΛ Studio</title>
+
+  <!-- Decorative top spike -->
+  <line x1="50" y1="1" x2="50" y2="10" stroke="#0057ff" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="50" cy="4.5" r="3.5" fill="#0057ff"/>
+
+  <!-- 4 circular petals -->
+  <circle cx="50" cy="32" r="24" fill="#0057ff"/>
+  <circle cx="26" cy="62" r="24" fill="#0057ff"/>
+  <circle cx="74" cy="62" r="24" fill="#0057ff"/>
+  <circle cx="50" cy="92" r="24" fill="#0057ff"/>
+
+  <!-- Letters centered in each petal -->
+  <text x="50"  y="40"  text-anchor="middle" fill="white"
+        font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22">R</text>
+  <text x="26"  y="70"  text-anchor="middle" fill="white"
+        font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22">Y</text>
+  <text x="74"  y="70"  text-anchor="middle" fill="white"
+        font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22">Θ</text>
+  <text x="50"  y="100" text-anchor="middle" fill="white"
+        font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="22">Λ</text>
 </svg>
