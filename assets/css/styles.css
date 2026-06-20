@@ -308,8 +308,9 @@ button { font: inherit; cursor: pointer; }
   right: 18px; top: 50%; transform: translateY(-50%);
 }
 .side-rail ul {
-  list-style: none; margin: 0; padding: 0;
+  list-style: none; margin: 0; padding: 10px 8px;
   display: flex; flex-direction: column; align-items: flex-end; gap: 7px;
+  border-radius: var(--radius-pill);
 }
 .side-rail a {
   display: flex; align-items: center; flex-direction: row-reverse; gap: 8px;
