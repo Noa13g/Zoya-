@@ -5,9 +5,9 @@ import { TIMING } from '../config';
 export const LightSwipe: React.FC = () => {
   const frame = useCurrentFrame();
 
-  // Sweep happens from frame 75 to 130 — mid-focus-pull
-  const sweepStart = TIMING.plan2Start + 15;
-  const sweepEnd = TIMING.plan2Start + 75;
+  // Sweep happens from frame 90 to 145 — mid-focus-pull
+  const sweepStart = TIMING.plan1End + 15;
+  const sweepEnd = TIMING.plan1End + 75;
 
   const progress = interpolate(frame, [sweepStart, sweepEnd], [0, 1], {
     extrapolateLeft: 'clamp',
