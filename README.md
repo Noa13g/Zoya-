@@ -120,3 +120,70 @@ can grow into individual product pages, a full lookbook, an email integration an
 without rebuilding the visual layer.
 
 © Zoya Studio. Designed in France.
+
+---
+
+## Teaser vidéo (Remotion)
+
+Le dossier `teaser/` contient le projet **Remotion** pour les teasers TikTok / Reels Drop 01.
+
+### Démarrage rapide
+
+```bash
+cd teaser
+npm install
+npm run dev        # Remotion Studio → http://localhost:3000
+```
+
+Deux compositions apparaissent dans le Studio : **TeaserBlue** et **TeaserPink**.
+
+### Render
+
+```bash
+# Blue
+npx remotion render TeaserBlue out/ryoa-teaser-blue.mp4 --codec=h264 --crf=18
+
+# Pink
+npx remotion render TeaserPink out/ryoa-teaser-pink.mp4 --codec=h264 --crf=18
+```
+
+### Modifier les timings / textes / couleurs
+
+Tout est centralisé dans `teaser/src/config.ts` :
+
+| Clé | Description |
+|-----|-------------|
+| `PALETTE` | Couleurs (écru, cobalt, magenta, ink) |
+| `TIMING.*` | Changement de plan en frames (30fps → ×30 pour convertir en secondes) |
+| `TEXT.*` | Tous les labels et textes affichés |
+
+### Ajouter de l'audio
+
+```tsx
+// dans Root.tsx, modifier le composant wrapper :
+const BlueTeaser: React.FC = () => (
+  <TeaserComposition variant="blue" audioSrc="your-track.mp3" />
+);
+```
+
+Puis dépose le fichier audio dans `teaser/public/`.
+
+### Structure
+
+```
+teaser/
+├── public/
+│   ├── tee-back-blue.jpg
+│   ├── tee-front-blue.jpg
+│   ├── tee-back-pink.jpg
+│   ├── tee-front-pink.jpg
+│   └── logo.png
+└── src/
+    ├── config.ts                 ← tous les réglages
+    ├── TeaserComposition.tsx     ← composant unique paramétré (blue/pink)
+    ├── Root.tsx                  ← enregistre TeaserBlue + TeaserPink
+    └── components/
+        ├── GrainOverlay.tsx      ← grain de film animé (SVG feTurbulence)
+        ├── Vignette.tsx          ← vignette radiale permanente
+        └── LightSwipe.tsx        ← balayage de lumière cinéma
+```
